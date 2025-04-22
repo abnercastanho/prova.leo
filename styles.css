@@ -26,3 +26,14 @@
     width: 80%;
     max-width: 500px;
 }
+
+.container input[type="text"],
+.container select {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
