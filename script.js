@@ -4,13 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputDescricao = document.getElementById('desc');
     const inputValor = document.getElementById('valor');
     const inputCategoria = document.getElementById('cat');
+    const totalGastosSpan = document.getElementById('total-gastos');
+    let totalGastos = 0;
+
+    function atualizarTotalGastos() {
+        totalGastosSpan.textContent = `R$ ${totalGastos.toFixed(2)}`;
+    }
 
     botaoAdicionar.addEventListener('click', () => {
         const descricao = inputDescricao.value.trim();
-        const valor = inputValor.value.trim();
+        const valorTexto = inputValor.value.trim();
         const categoria = inputCategoria.value.trim();
+        const valor = parseFloat(valorTexto);
 
-        if (descricao && valor && categoria) {
+        if (descricao && valorTexto && categoria && !isNaN(valor)) {
             const novaLinha = tabelaGastos.insertRow();
 
             const celulaDescricao = novaLinha.insertCell();
@@ -18,15 +25,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const celulaCategoria = novaLinha.insertCell();
 
             celulaDescricao.textContent = descricao;
-            celulaValor.textContent = valor;
+            celulaValor.textContent = `R$ ${valor.toFixed(2)}`;
             celulaCategoria.textContent = categoria;
+
+            totalGastos += valor;
+            atualizarTotalGastos();
 
             // Limpa os campos do formulário após adicionar o gasto
             inputDescricao.value = '';
             inputValor.value = '';
             inputCategoria.value = '';
         } else {
-            alert('Por favor, preencha todos os campos.');
+            alert('Por favor, preencha todos os campos com valores válidos.');
         }
     });
+
+    // Inicializa o total de gastos na página
+    atualizarTotalGastos();
 });

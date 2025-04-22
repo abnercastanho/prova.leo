@@ -105,3 +105,9 @@ body {
 #tabela-gastos tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
+
+#total-gastos {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #007bff; /* Azul vibrante para destacar o total */
+}
