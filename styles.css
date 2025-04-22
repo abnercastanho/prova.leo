@@ -1,0 +1,18 @@
+.titulo-barra {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8b4b4b; /* Preto */
+    color: #0c0000;
+    padding: 1rem;
+    border-radius: 12px;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.titulo-barra span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #f06e00; /* Laranja rústico */
+}
