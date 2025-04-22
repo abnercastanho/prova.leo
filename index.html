@@ -1,36 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Tarefas - Prova Pratica</title>
+    <title>Lista de Gastos - Prova Prática</title>
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Barra estilizada centralizada com o texto -->
     <div class="titulo-barra">
-        <span>Lista de Tarefas</span>
+        <span>Lista de Gastos</span>
     </div>
 
     <div class="container">
-        <form action="" id="descricao">
-            <label for="">Descrição do Gasto</label>
-            <input type="text" class="form-control" id="desc"> 
-        </form> 
+        <form id="form-gasto">
+            <label for="desc">Descrição do Gasto</label>
+            <input type="text" class="form-control" id="desc">
+        </form>
     </div>
 
     <div class="container">
-        <form action="" id="campovalor">
-            <label for="">Valor do gasto</label>
-            <input type="text" class="form-control" id="desc"> 
-        </form> 
+        <form id="form-valor">
+            <label for="valor">Valor do Gasto</label>
+            <input type="number" class="form-control" id="valor">
+        </form>
     </div>
 
     <div class="container">
-        <form action="" id="categoria">
-            <label for="">Categoria</label>
-            <input type="text" class="form-control" id="desc"> 
-        </form>  
+        <form id="form-categoria">
+            <label for="cat">Categoria</label>
+            <input type="text" class="form-control" id="cat">
+        </form>
     </div>
 
+    <div class="container">
+        <button id="adicionar-gasto">Adicionar Gasto</button>
+    </div>
+
+    <div class="container">
+        <h2>Tabela de Gastos</h2>
+        <table id="tabela-gastos">
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
 
 </head>
+<body>
+
+</body>
+</html>

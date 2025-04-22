@@ -1,20 +1,32 @@
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
 .titulo-barra {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #8b4b4b; /* Preto */
-    color: #0c0000;
+    background-color: #333; /* Preto mais suave */
+    color: #fff;
     padding: 1rem;
-    border-radius: 12px;
-    margin: 2rem auto;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    width: 80%;
     max-width: 600px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .titulo-barra span {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #f06e00; /* Laranja rústico */
+    color: #f9aa33; /* Laranja mais vibrante */
 }
 
 .container {
@@ -25,10 +37,18 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 80%;
     max-width: 500px;
+    box-sizing: border-box;
+}
+
+.container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
 }
 
 .container input[type="text"],
-.container select {
+.container input[type="number"] {
     width: calc(100% - 12px);
     padding: 8px;
     margin-bottom: 10px;
@@ -37,3 +57,4 @@
     box-sizing: border-box;
     font-size: 1em;
 }
+
