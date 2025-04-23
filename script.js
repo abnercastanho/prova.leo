@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         totalGastosSpan.textContent = `R$ ${totalGastos.toFixed(2)}`;
     }
 
+    
     botaoAdicionar.addEventListener('click', () => {
         const descricao = inputDescricao.value.trim();
         const valorTexto = inputValor.value.trim();
@@ -23,10 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const celulaDescricao = novaLinha.insertCell();
             const celulaValor = novaLinha.insertCell();
             const celulaCategoria = novaLinha.insertCell();
+            const celulaAcoes = novaLinha.insertCell();
 
             celulaDescricao.textContent = descricao;
             celulaValor.textContent = `R$ ${valor.toFixed(2)}`;
             celulaCategoria.textContent = categoria;
+
+            const botaoExcluir = criarBotaoExcluir(novaLinha);
+            celulaAcoes.appendChild(botaoExcluir);
 
             totalGastos += valor;
             atualizarTotalGastos();
@@ -39,6 +44,20 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Por favor, preencha todos os campos com valores válidos.');
         }
     });
+
+    function criarBotaoExcluir(linha) {
+        const botaoExcluir = document.createElement('button');
+        botaoExcluir.textContent = 'Excluir';
+        botaoExcluir.classList.add('excluir-gasto'); 
+        botaoExcluir.addEventListener('click', function() {
+            const valorGasto = parseFloat(linha.cells[1].textContent.replace('R$ ', ''));
+            totalGastos -= valorGasto;
+            atualizarTotalGastos();
+            tabelaGastos.deleteRow(linha.rowIndex);
+        });
+        return botaoExcluir;
+    }
+
 
     // Inicializa o total de gastos na página
     atualizarTotalGastos();
