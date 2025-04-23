@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
         totalGastosSpan.textContent = `R$ ${totalGastos.toFixed(2)}`;
     }
 
-    
     botaoAdicionar.addEventListener('click', () => {
         const descricao = inputDescricao.value.trim();
         const valorTexto = inputValor.value.trim();
@@ -48,16 +47,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function criarBotaoExcluir(linha) {
         const botaoExcluir = document.createElement('button');
         botaoExcluir.textContent = 'Excluir';
-        botaoExcluir.classList.add('excluir-gasto'); 
+        botaoExcluir.classList.add('excluir-gasto');
         botaoExcluir.addEventListener('click', function() {
+            console.log("Linha (elemento tr):", linha);
+            console.log("Índice da Linha:", linha.rowIndex);
             const valorGasto = parseFloat(linha.cells[1].textContent.replace('R$ ', ''));
+            console.log("Valor a ser excluído:", valorGasto);
+            tabelaGastos.deleteRow(linha.rowIndex);
             totalGastos -= valorGasto;
             atualizarTotalGastos();
-            tabelaGastos.deleteRow(linha.rowIndex);
         });
         return botaoExcluir;
     }
-
 
     // Inicializa o total de gastos na página
     atualizarTotalGastos();
